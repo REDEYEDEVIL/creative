@@ -7,7 +7,7 @@ include('include/imageupload.php');
 <head>
     <title>imageupload</title>
     <!-- Include CKEditor CSS (optional, if needed) -->
-    
+
 </head>
 
 <body>
@@ -25,27 +25,27 @@ include('include/imageupload.php');
                                     <!-- imageupload Section -->
 
                                     <div class="row">
-                                    <div class="col-md-6">
+                                        <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="department">Category<span class="text-danger">*</span>
+                                                <label for="category">Category<span class="text-danger"></span>
                                                 </label><br>
-                                                <select name="department" id="department"
-                                                    placeholder="Select department" class="form-control" required>
+                                                <select name="category" id="category"
+                                                    placeholder="Select category" class="form-control">
                                                     <option value="">Select Category</option>
                                                     <?php getgallery_category($sql, $gallery_category); ?>
-                                                    <div id="department_err" class="errordiv text-danger"></div>
+                                                    <div id="category_err" class="errordiv text-danger"></div>
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="department">Sub-Category<span class="text-danger">*</span>
+                                                <label for="subcategory">Sub-Category<span class="text-danger"></span>
                                                 </label><br>
-                                                <select name="department" id="department"
-                                                    placeholder="Select department" class="form-control" required>
+                                                <select name="subcategory" id="subcategory"
+                                                    placeholder="Select subcategory" class="form-control">
                                                     <option value="">Select Sub-Category</option>
                                                     <?php getgallery_subcategory($sql, $gallery_subcategory); ?>
-                                                    <div id="department_err" class="errordiv text-danger"></div>
+                                                    <div id="subcategory_err" class="errordiv text-danger"></div>
                                                 </select>
                                             </div>
                                         </div>
@@ -54,18 +54,27 @@ include('include/imageupload.php');
                                             <div class="form-group">
                                                 <label for="imageuploadImages" class="form-label">Multiple Images<span
                                                         class="text-danger">*</span></label>
-                                                <input class="form-control" type="file" name="imageuploadImages[]"
-                                                    id="imageuploadImages"multiple>
+                                                <input class="form-controlfile" type="file" name="file" id="name"
+                                                    multiple>
+                                                <?php
+                                                if ($filepath != '') {
+                                                    echo '<img src="' . $path . $filepath . '" alt="Image Description" width="100%;" />';
+                                                }
+                                                ?>
                                             </div>
                                         </div>
-                                
 
-                                       
+
+
                                     </div>
                                     <div class="form-group row mr-1 justify-content-end">
-                                        <input type="hidden" class="form-control" id="eid" name="eid" value="">
+                                        <input type="hidden" class="form-control" id="eid" name="eid"
+                                            value="<?php echo $eid; ?>">
+                                        <input type="hidden" value="<?php echo $filepath; ?>" name="filepath">
                                         <button type="submit" name="submit"
                                             class="btn col-2 btn-primary btn-sm btn-block">Submit</button>
+                                        <a href="imageupload.php" name="cancel"
+                                            class=" col-2 ml-1 btn btn-danger">Cancel</a>
                                     </div>
                                     <div class="text-danger"></div>
 
@@ -88,7 +97,9 @@ include('include/imageupload.php');
                                 <thead class="thead-dark">
                                     <tr>
                                         <th style="width: 5%;">No.</th>
-                                        <th style="width: 70%;">Title</th>
+                                        <th style="width: 10%;">Category</th>
+                                        <th style="width: 10%;">Sub-category</th>
+                                        <th style="width: 70%;">Images</th>
                                         <th style="width: 20%;">Action</th>
                                     </tr>
                                 </thead>
@@ -112,6 +123,10 @@ include('include/imageupload.php');
     <!-- CKEditor Initialization -->
 
     <!-- CKEditor Initialization -->
-<script>
-    CKEDITOR.replace('imageuploadDescription');
-</script>
+    <script>
+        CKEDITOR.replace('imageuploadDescription');
+    </script>
+
+    <script>
+
+    </script>

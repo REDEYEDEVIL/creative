@@ -1,12 +1,16 @@
 <?php
-$aboutName = '';
+$images = '';
 $date = date('y-i-d h:m:s');
 $eid = '';
 $msg = '';
 $msge = '';
 $filepath ='';
-$description ='';
+$catid='';
+$subcat_id='';
 
+
+$path = "../upload/gallery/";
+$valid_formats = array("jpg", "png", "gif", "bmp","jpeg", "JPG", "PNG", "GIF", "BMP", "JPEG", "webp", "WEBP");
 
 if (isset($_GET['s'])) {
     $msg = "New record created successfully";
@@ -19,8 +23,8 @@ if (isset($_GET['e'])) {
 }
 
 if (isset($_POST['submit'])) {
-    $eid = '';
-    $aboutName = $_POST['aboutName'];
+    $cat_id = $_POST['category'];
+    $subcat_id = $_POST['eid'];
     $eid = $_POST['eid'];
     $filename = $_FILES['file']['name'];
 
@@ -36,20 +40,15 @@ if (isset($_POST['submit'])) {
     } else {
         $filepath = $_POST['filepath'];
     }
-    $flag = true;
-    if (empty($aboutName)) {
-        $flag = false;
-        $msge = "Title is required";
-    } else {
-        $query = mysqli_query($sql, "Select * from `image_upload` where title='$aboutName'");
-        if (mysqli_num_rows($query)) {
-            $flag = false;
-            $msge = "Title already exists";
-        }
-    }
 
-    if ($flag) {
+
+
         if ($eid == '') {
+            
+            echo "INSERT INTO `image_upload` (`catid`,`subcatid`,`images`, `created_date`) VALUES ('$gallery_category','$gallery_subcategory','$images','$date')";
+
+            exit();
+
             $query = mysqli_query($sql, "INSERT INTO `image_upload` (`catid`,`subcatid`,`images`, `created_date`) VALUES ('$gallery_category','$gallery_subcategory','$images','$date')");
             if ($query) {
 
@@ -70,7 +69,7 @@ if (isset($_POST['submit'])) {
             echo '<script type="text/javascript">window.location.href="imageupload.php?&u=1"</script>';
         }
     }
-}
+
 
 
 if (isset($_GET['did'])) {
@@ -92,7 +91,9 @@ if (isset($_GET['eid'])) {
     $eid = $_GET['eid'];
     $query = mysqli_query($sql, "Select * From `image_upload` where `id`='$eid'");
     $row = mysqli_fetch_object($query);
-    $aboutName = $row->title;
+    $images = $row->images;
+    $filepath =$row->image;
+    
 }
 
 function getgallery_category($sql, $gallery_category)
@@ -134,13 +135,17 @@ function tablerow($sql)
 
     $x = 1;
 
-    mysqli_data_seek($query1, 1);
-    while ($listdata = mysqli_fetch_object($query1 )) {
+    
+    while ($listdata = mysqli_fetch_object($query1)) {
+        // echo "select * from `gallery_category` where id = '$listdata->catid'";
+        $querys = mysqli_query($sql,"select * from `gallery_category` where id = '$listdata->catid'");
+        $list = mysqli_fetch_object($querys);
+        $name = $list->title;
 
         echo '<tr>
         <td class="text-center">' . $x . ' </td>
         <td class="d-flex justify-content-between">
-            <p>' . $listdata->title . '</p>
+            <p>' . $listdata->images . '</p>
             <div class="popover-icon">';
         $id = $listdata->id;
       

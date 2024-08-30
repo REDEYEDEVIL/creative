@@ -50,7 +50,7 @@ if (isset($_POST['submit'])) {
         }
     }
 
-    if ($flag) {
+   
         if ($eid == '') {
             $query = mysqli_query($sql, "INSERT INTO `gallery_category` (`title`,`image`,`created_date`) VALUES ('$catName','$filepath','$date')");
             if ($query) {
@@ -71,7 +71,7 @@ if (isset($_POST['submit'])) {
             }
             echo '<script type="text/javascript">window.location.href="gallerycategory.php?&u=1"</script>';
         }
-    }
+    
 }
 
 

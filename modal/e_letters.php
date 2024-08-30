@@ -25,23 +25,28 @@ include('include/e_letters.php');
                                     <!-- e_letters Section -->
 
                                     <div class="row">
-                                        <div class="col-md-6 ">
+                                        <div class="col-md-12 ">
                                             <div class="form-group">
                                                 <label for="e_lettersTitle" class="text-dark-50">Title
                                                     <span class="text-danger">*</span></label>
-                                                <input type="text" class="form-control" name="e_lettersTitle"
-                                                    id="e_lettersTitle" value=""
-                                                    placeholder="Enter Category Title. . . . .">
+                                                <input type="text" class="form-control" name="letterName"
+                                                    id="letterName" value="<?php echo $letterName; ?>"
+                                                    placeholder="Enter  Title. . . . .">
                                                 <h6 class="err text-danger" id="err"></h6>
                                             </div>
                                         </div>
 
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="e_lettersImages" class="form-label">Multiple Images<span
+                                                <label for="e_lettersImages" class="form-label">Upload File<span
                                                         class="text-danger">*</span></label>
-                                                <input class="form-control" type="file" name="e_lettersImages[]"
-                                                    id="e_lettersImages">
+                                                <input class="form-controlfile" type="file" name="file"
+                                                    id="name" value="">
+                                                    <?php
+                                                    if ($filepath != '') {
+                                                        echo '<img src="' . $path . $filepath . '" alt="Image Description" width="25%;" style="margin-top:20px" />';
+                                                    }
+                                                    ?>
                                             </div>
                                         </div>
                                 
@@ -49,9 +54,11 @@ include('include/e_letters.php');
                                        
                                     </div>
                                     <div class="form-group row mr-1 justify-content-end">
-                                        <input type="hidden" class="form-control" id="eid" name="eid" value="">
+                                        <input type="hidden" class="form-control" id="eid" name="eid" value="<?php echo $eid;?>">
+                                        <input type="hidden" value="<?php echo $filepath; ?>" name="filepath">
                                         <button type="submit" name="submit"
                                             class="btn col-2 btn-primary btn-sm btn-block">Submit</button>
+                                            <a href="e_letters.php" name="cancel" class=" col-2 ml-1 btn btn-danger">Cancel</a>
                                     </div>
                                     <div class="text-danger"></div>
 
@@ -64,7 +71,7 @@ include('include/e_letters.php');
                     <div class="card">
                         <div class="card-body">
                             <?php
-                            $x = mysqli_num_rows(mysqli_query($sql, "SELECT * from `awt_role` where deleted = 0"));
+                            $x = mysqli_num_rows(mysqli_query($sql, "SELECT * from `e_letters` where deleted = 0"));
                             ?>
                             <h5 class="text-dark" style="border-bottom: 1px solid #cfcfcf;padding-bottom:5px ; ">
                                 <strong>E_letters List (<span id="roleCount"><?php echo $x; ?></span>)</strong>
