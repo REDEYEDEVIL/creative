@@ -49,9 +49,9 @@ include('include/e_letters.php');
                                                     ?>
                                             </div>
                                         </div>
-                                
 
-                                       
+
+
                                     </div>
                                     <div class="form-group row mr-1 justify-content-end">
                                         <input type="hidden" class="form-control" id="eid" name="eid" value="<?php echo $eid;?>">
@@ -105,6 +105,3 @@ include('include/e_letters.php');
     <!-- CKEditor Initialization -->
 
     <!-- CKEditor Initialization -->
-<script>
-    CKEDITOR.replace('e_lettersDescription');
-</script>

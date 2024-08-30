@@ -1,3 +1,21 @@
+<script src="https://cdn.ckeditor.com/ckeditor5/35.3.2/classic/ckeditor.js"></script>
+<script>
+ClassicEditor
+        .create(document.querySelector('#ckeditor'))
+        .then(editor => {
+            editor.editing.view.change(writer => {
+                writer.setStyle(
+                    'height',
+                    '120px',  // This value is approximate for 6 rows. Adjust as needed.
+                    editor.editing.view.document.getRoot()
+                );
+            });
+        })
+        .catch(error => {
+            console.error(error);
+        });
+</script>
+
 <script src="assets/libs/jquery/dist/jquery.min.js"></script>
     <script src="assets/libs/popper.js/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -16,8 +34,7 @@
     <script src="assets/extra-libs/jvector/jquery-jvectormap-2.0.2.min.js"></script>
     <script src="assets/extra-libs/jvector/jquery-jvectormap-world-mill-en.js"></script>
     <script src="dist/js/pages/dashboards/dashboard1.min.js"></script>
-    <script src="https://cdn.ckeditor.com/ckeditor5/35.3.2/classic/ckeditor.js"></script>
- 
+
 </body>
 
 </html>

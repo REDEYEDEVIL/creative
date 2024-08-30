@@ -65,7 +65,7 @@ include('include/middleschool.php');
                                             <div class="form-group">
                                                 <label>Middleschool Description</label>
                                                 <textarea class="form-control" placeholder=""
-                                                    id="middleschoolDescription" name="middleschooldescription"
+                                                    id="ckeditor" name="middleschooldescription"
                                                     rows="8"></textarea>
                                             </div>
                                         </div>
@@ -120,6 +120,3 @@ include('include/middleschool.php');
     <!-- CKEditor Initialization -->
 
     <!-- CKEditor Initialization -->
-<script>
-    CKEDITOR.replace('middleschoolDescription');
-</script>

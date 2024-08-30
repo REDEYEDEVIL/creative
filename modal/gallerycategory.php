@@ -7,7 +7,7 @@ include('include/gallerycategory.php');
 <head>
     <title>gallerycategory</title>
     <!-- Include CKEditor CSS (optional, if needed) -->
-   
+
 </head>
 
 <body>
@@ -50,11 +50,18 @@ include('include/gallerycategory.php');
                                                     ?>
                                             </div>
                                         </div>
+<<<<<<< Updated upstream
                                        
                                 
 
                                        
                                    
+=======
+
+
+
+                                    </div>
+>>>>>>> Stashed changes
                                     <div class="form-group row mr-1 justify-content-end">
                                         <input type="hidden" class="form-control" id="eid" name="eid" value="<?php echo $eid; ?>">
                                         <input type="hidden" value="<?php echo $filepath; ?>" name="filepath">
@@ -107,6 +114,3 @@ include('include/gallerycategory.php');
     <!-- CKEditor Initialization -->
 
     <!-- CKEditor Initialization -->
-<script>
-    CKEDITOR.replace('gallerycategoryDescription');
-</script>

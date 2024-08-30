@@ -7,7 +7,7 @@ include('include/contactus.php');
 <head>
     <title>contactus</title>
     <!-- Include CKEditor CSS (optional, if needed) -->
-  
+
 </head>
 
 <body>
@@ -28,7 +28,7 @@ include('include/contactus.php');
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Address</label>
-                                                <textarea class="form-control" placeholder="" id="partnersDescription"
+                                                <textarea class="form-control" placeholder="" id="ckeditor"
                                                     name="partnersdescription" rows="8"></textarea>
                                             </div>
                                         </div>
@@ -45,7 +45,7 @@ include('include/contactus.php');
                                             <div class="form-group">
                                                 <label> Phone Number </label>
                                                 <input type="text" placeholder="Enter ..." id="mobile2"
-                                                   
+
                                                     class="form-control onlynumber" />
                                                 <div id="mmsg"></div>
                                             </div>
@@ -71,6 +71,4 @@ include('include/contactus.php');
     <!-- CKEditor Initialization -->
 
     <!-- CKEditor Initialization -->
-    <script>
-        CKEDITOR.replace('contactusDescription');
-    </script>
+

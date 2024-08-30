@@ -104,6 +104,4 @@ include('include/gallerysub-category.php');
     <!-- CKEditor Initialization -->
 
     <!-- CKEditor Initialization -->
-    <script>
-        CKEDITOR.replace('gallerysub-categoryDescription');
-    </script>
+ -->
