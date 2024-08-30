@@ -67,7 +67,7 @@ error_reporting(E_ALL);
             </div>
           </div>
           <input type="hidden" name="eid" value="<?php echo $eid; ?>">
-          <button type="submit" name="submit" id="submit" class="btn btn-primary"">Submit</button>
+          <button type="submit" name="submit" id="submit" class="btn btn-primary">Submit</button>
                     <button type=" button" onclick="window.location.href='customer_master_list.php'" name="cancel" id="cancel" class="btn btn-danger"">Cancel</button>
                 </form>
                 <div style=" color: red;"><?php echo $msg;  ?>

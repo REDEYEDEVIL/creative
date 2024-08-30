@@ -80,29 +80,6 @@ if (isset($_GET['eid'])) {
 }
 
 
-
-
-// function generateTableRow($id, $title, $x)
-// {
-
-//     return "";
-// }
-
-// function tablerow($sql)
-// {
-//     $x = 1;
-//     $query = mysqli_query($sql, "SELECT id, title FROM awt_role where `deleted` != 1");
-//     if ($query->num_rows > 0) {
-//         while ($row = $query->fetch_assoc()) {
-//             echo generateTableRow($row["id"], $row["title"], $x);
-//             $x++;
-//         }
-//     } else {
-//         echo "0 results";
-//     }
-// }
-
-
 function tablerow($sql)
 {
     $query1 = mysqli_query($sql, "SELECT * FROM `awt_role` where `deleted` = 0");
@@ -140,4 +117,4 @@ function tablerow($sql)
     }
 }
 
-// echo $x;
+

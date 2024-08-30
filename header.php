@@ -63,23 +63,12 @@ if (!isset($_SESSION['id'])) {
 
 <header class="topbar" data-navbarbg="skin6">
   <nav class="navbar top-navbar navbar-expand-md">
-    <div class="navbar-header" data-logobg="skin6">
+    <div class="navbar-header" data-logobg="skin6" >
       <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="#"><i class="ti-menu ti-close"></i></a>
       <div class="navbar-brand justify-content-center">
-        <!-- Logo icon -->
-        <!-- <a href="index.php">
-                    <b class=""> -->
-        <!-- Dark Logo icon -->
-        <img src="assets/images/image.png" alt="homepage" width="75%" style="margin-top: 30px;" class="dark-logo" />
-        <!-- </b> -->
-        <!--End Logo icon -->
-        <!-- Logo text -->
-        <!-- dark Logo text -->
-        <!-- <span class="logo-text">
-                        <img src="assets/images/logos.png" width="77%" alt="homepage" class="dark-logo" />
 
-                    <!-- </span> -->
-        <!--- </a> -->
+        <img src="assets/images/users/north-star-logo.jpg" alt="homepage" width="80%"  class="dark-logo" />
+       
       </div>
 
     </div>
@@ -87,12 +76,7 @@ if (!isset($_SESSION['id'])) {
     <!-- End Logo -->
 
     <div class="navbar-collapse collapse justify-content-end bg-white " id="navbarSupportedContent">
-      <li class="nav-item d-flex align-items-center">
-        <form class="form-inline">
-          <input class="form-control " style="border-radius: 0% ;" type="search" placeholder="Search Projects..." aria-label="Search">
-          <button class="btn btn-success " style="border-radius: 0% ;" type="submit">Search</button>
-        </form>
-      </li>
+     
       <ul class="navbar-nav">
 
 
@@ -100,14 +84,11 @@ if (!isset($_SESSION['id'])) {
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <img src="assets/images/users/profile-pic.jpg" alt="user" class="rounded-circle" width="40">
-            <span class="ml-2 d-none d-lg-inline-block"><span>Hello,</span> <span class="text-dark"> <?php echo htmlspecialchars($per_name); ?> </span> <i data-feather="chevron-down" class="svg-icon"></i></span>
+            <span class="ml-2 d-none d-lg-inline-block text-dark   "><span>Hello,</span> <span class="text-dark"> <?php echo htmlspecialchars($per_name); ?> </span> <i data-feather="chevron-down" class="svg-icon"></i></span>
           </a>
           <div class="dropdown-menu dropdown-menu-right user-dd animated flipInY">
-            <a class="dropdown-item" href="#"><i data-feather="user" class="svg-icon mr-2 ml-1"></i>
-              My Profile</a>
-            <a class="dropdown-item" href="#"><i data-feather="settings" class="svg-icon mr-2 ml-1"></i>
-              Account Setting</a>
-            <div class="dropdown-divider"></div>
+           
+            
             <a class="dropdown-item" href="modal/logout/admin_logout.php"><i data-feather="power" class="svg-icon mr-2 ml-1"></i>
               Logout</a>
           </div>

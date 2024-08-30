@@ -2,7 +2,7 @@
 $msg  = '';
 $empty = true;
 if (isset($_GET['e'])) {
-  $msg = "Your email or password is incorrect";
+  $msg = "Your email or password is incorrect";     
 }
 
 if (isset($_GET['n'])) {

@@ -61,7 +61,7 @@ include('include/edit.php');
                         <span class="error" id="passwordError"><?php echo $passwordError ; ?></span>
                     </div>
                 </div>
-                <button type="submit" name="submit" id="submit" class="btn btn-primary"">Submit</button>
+                <button type="submit" name="submit" id="submit" class="btn btn-primary">Submit</button>
          </form>
         </div>
     </div>

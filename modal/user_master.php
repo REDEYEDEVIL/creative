@@ -43,13 +43,7 @@ include('include/user_master.php')
                                     <div id="passwordError" style="color: red;"><?php echo $passwordError ;?></div>
                                 </div>
 
-                                <div class="form-group col-md-3">
-                                    <label class="text-dark" for="reportto">Report TO</label>
-                                 <select class="form-control" id="reportto" name="reportto">
-                                       <?php reportto($sql , $reportto) ?>
-                                    </select>
-                                    <div id="reporttoEERRO" style="color: red;"><?php echo $reporttoError ;?></div>
-                                </div>
+                              
                                 <div class="form-group col-md-3">
                                     <label class="text-dark" for="role">Role <span class="text-danger">*</span></label>
                                     <select class="form-control" id="role" name="role">
@@ -58,18 +52,7 @@ include('include/user_master.php')
                                     <div id="roleError" style="color: red;"><?php echo $roleError ;?></div>
                                 </div>
 
-                                <div class="form-group col-md-3">
-                                    <label class="text-dark" for="pimg">Profile Icon </label>
-
-                                    <input type="file" class="form-control" name="pimg" >
-
-                                    <div id="pimgError" style="color: red;"><?php echo $pimgError ;?></div>
-                                    <?php
-                                    if ($filepath) {
-                                        echo '<img src="upload/profile_img/' . $filepath . '" width="100px">';
-                                    }
-                                    ?>
-                                </div>
+                               
                                 <div style="color: red;" ><?php echo $msg ?></div>
                                 <div class="form-group col-12 d-flex justify-content-end">
                                     <input type="hidden" name="mdpss" value="<?php echo  $mdpss;?>">

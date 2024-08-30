@@ -4,14 +4,13 @@ if($_SESSION['role'] == 1){
   echo '<script type="text/javascript">window.location.href="index.php";</script>';
 }
 ?>
-
 <aside class="left-sidebar" data-sidebarbg="skin6">
   <!-- Sidebar scroll-->
   <div class="scroll-sidebar" data-sidebarbg="skin6">
     <!-- Sidebar navigation-->
-    <nav class="sidebar-nav">
+    <nav class="sidebar-nav pt-0">
       <ul id="sidebarnav">
-      <li class="list-divider"></li>
+        <li class="list-divider"></li>
         <li class="sidebar-item">
           <a class="sidebar-link sidebar-link" href="dashboard.php" aria-expanded="false">
             <i data-feather="home" class="feather-icon"></i>
@@ -21,6 +20,67 @@ if($_SESSION['role'] == 1){
         <li class="list-divider"></li>
 
         <li class="nav-small-cap"><span class="text-black">Master</span></li>
+
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="#HomeSubmenu" aria-expanded="false" data-toggle="collapse">
+            <i data-feather="home" class="feather-icon"></i>
+            <span class="text-black">Home</span>
+          </a>
+            <ul id="HomeSubmenu" class="submenu collapse">
+              <li class="sidebar-item"><a href="homesec1.php" class="sidebar-link">Section1 </a></li>
+              <li class="sidebar-item"><a href="homesec2.php" class="sidebar-link">Section 2</a></li>
+              <li class="sidebar-item"><a href="homegallery.php" class="sidebar-link">Photo Gallery</a></li>
+            </ul>
+        </li>
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="about_us.php" aria-expanded="false">
+            <i data-feather="book" class="feather-icon"></i>
+            <span class="text-black">About Us</span>
+          </a>
+        </li>
+
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="#academicsSubmenu" aria-expanded="false" data-toggle="collapse">
+            <i data-feather="book" class="feather-icon"></i>
+            <span class="text-black">Academics</span>
+          </a>
+            <ul id="academicsSubmenu" class="submenu collapse">
+              <li class="sidebar-item"><a href="preschool.php" class="sidebar-link">Preschool</a></li>
+              <li class="sidebar-item"><a href="primary.php" class="sidebar-link">Primary</a></li>
+              <li class="sidebar-item"><a href="middleschool.php" class="sidebar-link">Middle School</a></li>
+            </ul>
+        </li>
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="partners.php" aria-expanded="false">
+            <i data-feather="book" class="feather-icon"></i>
+            <span class="text-black">Educational Partners</span>
+          </a>
+        </li>
+
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="#gallerySubmenu" aria-expanded="false" data-toggle="collapse">
+            <i data-feather="image" class="feather-icon"></i>
+            <span class="text-black">Gallery</span>
+          </a>
+            <ul id="gallrySubmenu" class="submenu collapse">
+              <li class="sidebar-item"><a href="gallerycategory.php" class="sidebar-link">Category</a></li>
+              <li class="sidebar-item"><a href="gallerysub-category.php" class="sidebar-link">Sub-category</a></li>
+              <li class="sidebar-item"><a href="imageupload.php" class="sidebar-link">image-upload</a></li>
+            </ul>
+        </li>
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="e_letters.php" aria-expanded="false">
+            <i data-feather="mail" class="feather-icon"></i>
+            <span class="text-black">E Letters </span>
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="contactus.php" aria-expanded="false">
+            <i data-feather="phone" class="feather-icon"></i>
+            <span class="text-black">Contact Us</span>
+          </a>
+        </li>
+
 
         <li class="sidebar-item">
           <a class="sidebar-link" href="role_master.php" aria-expanded="false">
@@ -34,46 +94,8 @@ if($_SESSION['role'] == 1){
             <span class="text-black">User Master</span>
           </a>
         </li>
-        <li class="sidebar-item">
-          <a class="sidebar-link" href="customer_master_list.php" aria-expanded="false">
-            <i data-feather="briefcase" class="feather-icon"></i>
-            <span class="text-black">Customer Master</span>
-          </a>
-        </li>
-        <!-- <li class="sidebar-item">
-          <a class="sidebar-link" href="project_type.php" aria-expanded="false">
-            <i data-feather="list" class="feather-icon"></i>
-            <span class="text-black">Project Type</span>
-          </a>
-        </li> -->
-        <li class="sidebar-item">
-          <a class="sidebar-link" href="creative_type.php" aria-expanded="false">
-            <i data-feather="image" class="feather-icon"></i>
-            <span class="text-black">Creative Type</span>
-          </a>
-        </li>
         <li class="list-divider"></li>
 
-        <li class="sidebar-item">
-          <a class="sidebar-link" href="project_master_list.php" aria-expanded="false">
-            <i data-feather="file-text" class="feather-icon"></i>
-            <span class="text-black">Project </span>
-          </a>
-        </li>
-
-        <li class="sidebar-item">
-          <a class="sidebar-link" href="review_master.php" aria-expanded="false">
-            <i data-feather="file-text" class="feather-icon"></i>
-            <span class="text-black">Review</span>
-          </a>
-        </li>
-
-        <li class="sidebar-item">
-          <a class="sidebar-link sidebar-link" href="creative_search.php" aria-expanded="false">
-            <i data-feather="search" class="feather-icon"></i>
-            <span class="text-black">Creative Search</span>
-          </a>
-        </li>
 
       </ul>
     </nav>

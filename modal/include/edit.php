@@ -97,7 +97,7 @@ function state($sql,$state){
   $query =mysqli_query($sql , "Select * from `awt_states` ");
   while ($listdata=mysqli_fetch_object($query)) {
     echo '<option value='. $listdata->id .'>' ;
-    if ($state==$listdata->id) {
+    if ($state==$listdata->id)     {
       echo "selected";
     }
     echo ''. $listdata->name .'</option>';

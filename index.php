@@ -41,15 +41,19 @@ include('head.php');
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    background-color: white;
   }
 
   .img {
     width: 50%;
     height: 100%;
-    background-size: cover;
+   
     background-position: center;
     border-radius: 10px 0 0 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    
+    background-size: 80%;
+    background-repeat: no-repeat;
+    
   }
 
   .login-wrap {
@@ -58,7 +62,7 @@ include('head.php');
     padding: 40px;
     background-color: #fff;
     border-radius: 0 10px 10px 0;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+   
   }
 
   .login-wrap h3 {
