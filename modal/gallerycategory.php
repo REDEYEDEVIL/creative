@@ -1,16 +1,7 @@
 <?php
 include('include/gallerycategory.php');
 ?>
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <title>gallerycategory</title>
-    <!-- Include CKEditor CSS (optional, if needed) -->
-
-</head>
-
-<body>
     <div class="page-wrapper">
         <div class="p-3" style="height: 100vh !important; width: 100%;">
             <div class="row">
@@ -23,7 +14,7 @@ include('include/gallerycategory.php');
                                 style="border-top: 1px solid #cfcfcf;">
                                 <div class="card-body p-1 mt-2">
                                     <!-- gallerycategory Section -->
-
+                                     <div class="row">
                                    
                                         <div class="col-md-12 ">
                                             <div class="form-group">
@@ -50,18 +41,15 @@ include('include/gallerycategory.php');
                                                     ?>
                                             </div>
                                         </div>
-<<<<<<< Updated upstream
                                        
                                 
 
                                        
                                    
-=======
 
 
 
                                     </div>
->>>>>>> Stashed changes
                                     <div class="form-group row mr-1 justify-content-end">
                                         <input type="hidden" class="form-control" id="eid" name="eid" value="<?php echo $eid; ?>">
                                         <input type="hidden" value="<?php echo $filepath; ?>" name="filepath">

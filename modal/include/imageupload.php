@@ -45,11 +45,11 @@ if (isset($_POST['submit'])) {
 
         if ($eid == '') {
             
-            echo "INSERT INTO `image_upload` (`catid`,`subcatid`,`images`, `created_date`) VALUES ('$gallery_category','$gallery_subcategory','$images','$date')";
+            // echo "INSERT INTO `image_upload` (`catid`,`subcatid`,`images`, `created_date`) VALUES ('$gallery_category','$gallery_subcategory','$images','$date')";
 
-            exit();
+            // exit();
 
-            $query = mysqli_query($sql, "INSERT INTO `image_upload` (`catid`,`subcatid`,`images`, `created_date`) VALUES ('$gallery_category','$gallery_subcategory','$images','$date')");
+            $query = mysqli_query($sql, "INSERT INTO `image_upload` (`catid`,`subcatid`,`images`, `created_date`) VALUES  gallery_category','$gallery_subcategory','$images','$date')");
             if ($query) {
 
                 $msg = "New record created successfully";
