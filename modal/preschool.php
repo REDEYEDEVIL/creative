@@ -1,16 +1,7 @@
 <?php
 include('include/preschool.php');
 ?>
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <title>About Us Form</title>
-    <!-- Include CKEditor CSS (optional, if needed) -->
-
-</head>
-
-<body>
     <div class="page-wrapper">
         <div class="p-3" style="height: 100vh !important; width: 100%;">
             <div class="row">
@@ -64,8 +55,7 @@ include('include/preschool.php');
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Preschool Description</label>
-                                                <textarea class="form-control" placeholder="" id="preschoolDescription"
-                                                    name="preschooldescription" rows="8"></textarea>
+                                                <textarea class="form-control" placeholder="" id="ckeditor" name="preschooldescription" rows="10"></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -116,12 +106,3 @@ include('include/preschool.php');
 
     </div>
     </form>
-  <!-- CKEditor Initialization -->
-
-    <!-- CKEditor Initialization -->
-<script>
-    CKEDITOR.replace('preschoolDescription');
-   
-</script>
-
-

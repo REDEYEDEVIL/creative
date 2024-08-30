@@ -7,7 +7,7 @@ include('include/imageupload.php');
 <head>
     <title>imageupload</title>
     <!-- Include CKEditor CSS (optional, if needed) -->
-    
+
 </head>
 
 <body>
@@ -58,9 +58,9 @@ include('include/imageupload.php');
                                                     id="imageuploadImages"multiple>
                                             </div>
                                         </div>
-                                
 
-                                       
+
+
                                     </div>
                                     <div class="form-group row mr-1 justify-content-end">
                                         <input type="hidden" class="form-control" id="eid" name="eid" value="">
@@ -112,6 +112,3 @@ include('include/imageupload.php');
     <!-- CKEditor Initialization -->
 
     <!-- CKEditor Initialization -->
-<script>
-    CKEDITOR.replace('imageuploadDescription');
-</script>

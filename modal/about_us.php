@@ -88,7 +88,7 @@ include('include/about_us.php');
               <div class="col-md-12">
                 <div class="form-group">
                   <label>Vision Description</label>
-                  <textarea class="form-control" placeholder="" id="visionDescription" name="visiondescription" rows="8"><?php echo $description; ?></textarea>
+                  <textarea class="form-control" placeholder="" id="ckeditor" name="visiondescription" rows="8"><?php echo $description; ?></textarea>
                 </div>
               </div>
               <div class="col-md-6">
@@ -126,7 +126,7 @@ include('include/about_us.php');
               <div class="col-md-12">
                 <div class="form-group">
                   <label>Mission Description</label>
-                  <textarea class="form-control" placeholder="" id="missionDescription" name="missiondescription" rows="8"><?php echo $description; ?></textarea>
+                  <textarea class="form-control" placeholder="" id="ckeditor1" name="missiondescription" rows="8"><?php echo $description; ?></textarea>
                 </div>
               </div>
               <div class="col-md-6">
@@ -154,7 +154,22 @@ include('include/about_us.php');
 </div>
 <!-- </body> -->
 <!-- CKEditor Initialization -->
+
+    <script src="https://cdn.ckeditor.com/ckeditor5/35.3.2/classic/ckeditor.js"></script>
 <script>
-  CKEDITOR.replace('visionDescription');
-  CKEDITOR.replace('missionDescription');
+ClassicEditor
+        .create(document.querySelector('#ckeditor1'))
+        .then(editor => {
+            editor.editing.view.change(writer => {
+                writer.setStyle(
+                    'height',
+                    '120px',  // This value is approximate for 6 rows. Adjust as needed.
+                    editor.editing.view.document.getRoot()
+                );
+            });
+        })
+        .catch(error => {
+            console.error(error);
+        });
 </script>
+

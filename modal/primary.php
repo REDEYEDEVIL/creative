@@ -64,7 +64,7 @@ include('include/Primary.php');
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Primary Description</label>
-                                                <textarea class="form-control" placeholder="" id="PrimaryDescription"
+                                                <textarea class="form-control" placeholder="" id="ckeditor"
                                                     name="Primarydescription" rows="8"></textarea>
                                             </div>
                                         </div>
@@ -117,10 +117,5 @@ include('include/Primary.php');
     </div>
     </form>
    <!-- CKEditor Initialization -->
-  
-    <!-- CKEditor Initialization -->
-<script>
-    CKEDITOR.replace('PrimaryDescription');
-   
-</script>
 
+    <!-- CKEditor Initialization -->

@@ -56,8 +56,14 @@ include('include/partners.php');
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label> Description</label>
+<<<<<<< Updated upstream
                                                 <textarea class="form-control" placeholder="" id="partnersDescription"
                                                     name="partnersdescription" rows="8"></textarea>
+=======
+                                                <textarea class="form-control" placeholder=""
+                                                    id="ckeditor" name="partnersdescription"
+                                                    rows="8"></textarea>
+>>>>>>> Stashed changes
                                             </div>
                                         </div>
                                     </div>
@@ -111,6 +117,28 @@ include('include/partners.php');
     <!-- CKEditor Initialization -->
 
     <!-- CKEditor Initialization -->
+<<<<<<< Updated upstream
     <script>
         CKEDITOR.replace('partnersDescription');
     </script>
+=======
+
+
+<script src="https://cdn.ckeditor.com/ckeditor5/35.3.2/classic/ckeditor.js"></script>
+<script>
+ClassicEditor
+        .create(document.querySelector('#ckeditor1'))
+        .then(editor => {
+            editor.editing.view.change(writer => {
+                writer.setStyle(
+                    'height',
+                    '120px',  // This value is approximate for 6 rows. Adjust as needed.
+                    editor.editing.view.document.getRoot()
+                );
+            });
+        })
+        .catch(error => {
+            console.error(error);
+        });
+</script>
+>>>>>>> Stashed changes
