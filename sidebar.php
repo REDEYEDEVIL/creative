@@ -22,6 +22,30 @@ if($_SESSION['role'] == 1){
         <li class="nav-small-cap"><span class="text-black">Master</span></li>
 
         <li class="sidebar-item">
+          <a class="sidebar-link" href="role_master.php" aria-expanded="false">
+            <i data-feather="users" class="feather-icon"></i>
+            <span class="text-black">Role Master</span>
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a  class="sidebar-link" href="user_master.php" aria-expanded="false">
+            <i data-feather="user" class="feather-icon"></i>
+            <span class="text-black">User Master</span>
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a id="MastheadLink" class="sidebar-link" href="Masthead.php" aria-expanded="false" data-toggle="collapse">
+            <i data-feather="home" class="feather-icon"></i>
+            <span class="text-black">Masthead</span>
+          </a>
+            <ul id="MastheadSubmenu" class="submenu collapse">
+              <li class="sidebar-item"><a href="academics1.php" class="sidebar-link">Academics </a></li>
+              <li class="sidebar-item"><a href="activities.php" class="sidebar-link">Activities</a></li>
+              <li class="sidebar-item"><a href="sport.php" class="sidebar-link">Sport</a></li>
+            </ul>
+        </li>
+
+        <li class="sidebar-item">
           <a class="sidebar-link" href="#HomeSubmenu" aria-expanded="false" data-toggle="collapse">
             <i data-feather="home" class="feather-icon"></i>
             <span class="text-black">Home</span>
@@ -53,7 +77,7 @@ if($_SESSION['role'] == 1){
         <li class="sidebar-item">
           <a class="sidebar-link" href="partners.php" aria-expanded="false">
             <i data-feather="book" class="feather-icon"></i>
-            <span class="text-black">Educational Partners</span>
+            <span class="text-black">Education Partners</span>
           </a>
         </li>
 
@@ -82,18 +106,7 @@ if($_SESSION['role'] == 1){
         </li>
 
 
-        <li class="sidebar-item">
-          <a class="sidebar-link" href="role_master.php" aria-expanded="false">
-            <i data-feather="users" class="feather-icon"></i>
-            <span class="text-black">Role Master</span>
-          </a>
-        </li>
-        <li class="sidebar-item">
-          <a class="sidebar-link" href="user_master.php" aria-expanded="false">
-            <i data-feather="user" class="feather-icon"></i>
-            <span class="text-black">User Master</span>
-          </a>
-        </li>
+    
         <li class="list-divider"></li>
 
 
@@ -116,4 +129,5 @@ if($_SESSION['role'] == 1){
     return false; // Add this line
   });
 });
+
 </script>

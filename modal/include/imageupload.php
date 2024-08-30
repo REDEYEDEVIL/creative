@@ -41,7 +41,7 @@ if (isset($_POST['submit'])) {
         $flag = false;
         $msge = "Title is required";
     } else {
-        $query = mysqli_query($sql, "Select * from `awt_about` where title='$aboutName'");
+        $query = mysqli_query($sql, "Select * from `image_upload` where title='$aboutName'");
         if (mysqli_num_rows($query)) {
             $flag = false;
             $msge = "Title already exists";
@@ -50,24 +50,24 @@ if (isset($_POST['submit'])) {
 
     if ($flag) {
         if ($eid == '') {
-            $query = mysqli_query($sql, "INSERT INTO `awt_about` (`title`, `created_date`) VALUES ('$aboutName','$date')");
+            $query = mysqli_query($sql, "INSERT INTO `image_upload` (`catid`,`subcatid`,`images`, `created_date`) VALUES ('$gallery_category','$gallery_subcategory','$images','$date')");
             if ($query) {
 
                 $msg = "New record created successfully";
             } else {
                 $msg = "Error: " . $query . "<br>" . mysqli_error($conn);
             }
-            echo '<script type="text/javascript">window.location.href="about_us.php?&s=1"</script>';
+            echo '<script type="text/javascript">window.location.href="imageupload.php?&s=1"</script>';
         } else {
 
-            echo "UPDATE `awt_about` SET `title`='$aboutName' , `created_date`='$date' where `id` = '$eid'";
-            $query = mysqli_query($sql, "UPDATE `awt_about` SET `title`='$aboutName' , `created_date`='$date' where `id` = '$eid'");
+            echo "UPDATE `image_upload` SET `catid`='$gallery_category',`subcatid`='$gallery_subcategory',`images`='$images', `created_date`='$date' where `id` = '$eid'";
+            $query = mysqli_query($sql, "UPDATE `image_upload` SET `images`='$image' , `created_date`='$date' where `id` = '$eid'");
             if ($query) {
                 $msg = "Title Updated";
             } else {
                 $msg = "Error: " . $query . "<br>" . mysqli_error($conn);
             }
-            echo '<script type="text/javascript">window.location.href="about_us.php?&u=1"</script>';
+            echo '<script type="text/javascript">window.location.href="imageupload.php?&u=1"</script>';
         }
     }
 }
@@ -76,29 +76,61 @@ if (isset($_POST['submit'])) {
 if (isset($_GET['did'])) {
     $did = $_GET['did'];
 
-    echo "update `awt_about` set `deleted` = 1 where `id`='$did'";
+    echo "update `image_upload` set `deleted` = 1 where `id`='$did'";
 
-    $query = mysqli_query($sql, "update `awt_about` set `deleted` = 1 where `id`='$did'");
+    $query = mysqli_query($sql, "update `image_upload` set `deleted` = 1 where `id`='$did'");
     if ($query) {
 
         $msg = "Title Deleted";
     } else {
         $msg = "Error: " . $query . "<br>" . mysqli_error($conn);
     }
-    echo '<script type="text/javascript">window.location.href="about_us.php?&d=1"</script>';
+    echo '<script type="text/javascript">window.location.href="imageupload.php?&d=1"</script>';
 }
 
 if (isset($_GET['eid'])) {
     $eid = $_GET['eid'];
-    $query = mysqli_query($sql, "Select * From `awt_about` where `id`='$eid'");
+    $query = mysqli_query($sql, "Select * From `image_upload` where `id`='$eid'");
     $row = mysqli_fetch_object($query);
     $aboutName = $row->title;
 }
 
+function getgallery_category($sql, $gallery_category)
+{
+
+    $getdata = mysqli_query($sql, "SELECT * FROM `gallery_category` where `deleted` != 1");
+
+    while ($listdata = mysqli_fetch_object($getdata)) {
+
+        echo '<option value="' . $listdata->id . '"';
+        if ($listdata->id == $gallery_category) {
+            echo 'selected="gallery_category"';
+        }
+        echo '>' . $listdata->title . ' </option>';
+
+    }
+
+}
+function getgallery_subcategory($sql, $gallery_subcategory)
+{
+
+    $getdata = mysqli_query($sql, "SELECT * FROM `gallery_subcategory` where `deleted` != 1");
+
+    while ($listdata = mysqli_fetch_object($getdata)) {
+
+        echo '<option value="' . $listdata->id . '"';
+        if ($listdata->id == $gallery_subcategory) {
+            echo 'selected="gallery_category"';
+        }
+        echo '>' . $listdata->title . ' </option>';
+
+    }
+
+}
 
 function tablerow($sql)
 {
-    $query1 = mysqli_query($sql, "SELECT * FROM `awt_about` where `deleted` = 0");
+    $query1 = mysqli_query($sql, "SELECT * FROM `image_upload` where `deleted` = 0");
 
     $x = 1;
 
@@ -116,8 +148,8 @@ function tablerow($sql)
         echo '</div>
         </td>
         <td>
-          <a href="about_us.php?&eid=' . $listdata->id . '" class="btn" style="color: black;"><i class="fas fa-edit"></i></a>
-          <a onclick=\"return confirm("Are you sure you want to delete this role?")\" href="about_us.php?&did=' . $listdata->id . '" class="btn" style="color: red;"><i class="fas fa-trash-alt"></i></a>
+          <a href="imageupload.php?&eid=' . $listdata->id . '" class="btn" style="color: black;"><i class="fas fa-edit"></i></a>
+          <a onclick=\"return confirm("Are you sure you want to delete this role?")\" href="imageupload.php?&did=' . $listdata->id . '" class="btn" style="color: red;"><i class="fas fa-trash-alt"></i></a>
         </td>
     </tr>';
         $x++;

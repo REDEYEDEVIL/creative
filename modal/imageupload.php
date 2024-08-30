@@ -32,7 +32,7 @@ include('include/imageupload.php');
                                                 <select name="department" id="department"
                                                     placeholder="Select department" class="form-control" required>
                                                     <option value="">Select Category</option>
-
+                                                    <?php getgallery_category($sql, $gallery_category); ?>
                                                     <div id="department_err" class="errordiv text-danger"></div>
                                                 </select>
                                             </div>
@@ -43,8 +43,8 @@ include('include/imageupload.php');
                                                 </label><br>
                                                 <select name="department" id="department"
                                                     placeholder="Select department" class="form-control" required>
-                                                    <option value="">Select Category</option>
-
+                                                    <option value="">Select Sub-Category</option>
+                                                    <?php getgallery_subcategory($sql, $gallery_subcategory); ?>
                                                     <div id="department_err" class="errordiv text-danger"></div>
                                                 </select>
                                             </div>
@@ -52,7 +52,7 @@ include('include/imageupload.php');
 
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="imageuploadImages" class="form-label">Image<span
+                                                <label for="imageuploadImages" class="form-label">Multiple Images<span
                                                         class="text-danger">*</span></label>
                                                 <input class="form-control" type="file" name="imageuploadImages[]"
                                                     id="imageuploadImages"multiple>

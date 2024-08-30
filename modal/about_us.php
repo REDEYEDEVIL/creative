@@ -46,7 +46,30 @@ include('include/about_us.php');
           </div>
         </div>
       </div>
+       <!-- Vision Section -->
+      <!-- <div class="row"> -->
+      <div class="col-md-6 ">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="text-dark"><strong> NORTH STAR INTERNATIONAL ACADEMY
+            </strong></h5>
+            <div class="card-body p-1 mt-2">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label>Description</label>
+                  <textarea class="form-control" placeholder="" id="secDescription" name="secdescription" rows="8"><?php echo $description; ?></textarea>
+                </div>
+                  </div>
+              <div class="form-group row mr-1 justify-content-end">
+                  <input type="hidden" class="form-control" id="eid" name="eid" value="">
+                  <button type="submit" name="submit" class="btn col-3 btn-primary btn-sm btn-block">Submit</button>
+                </div>
+            </div>
+          </div>
+        </div>
     </div>
+    
+    
     <div class="row">
       <!-- Vision Section -->
       <!-- <div class="row"> -->

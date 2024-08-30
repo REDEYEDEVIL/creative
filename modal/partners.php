@@ -1,16 +1,16 @@
 <?php
 include('include/partners.php');
 ?>
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <title>partners</title>
-    Include CKEditor CSS (optional, if needed)
+    <!-- Include CKEditor CSS (optional, if needed) -->
 
 </head>
 
-<body> -->
+<body>
     <div class="page-wrapper">
         <div class="p-3" style="height: 100vh !important; width: 100%;">
             <div class="row">
@@ -41,32 +41,23 @@ include('include/partners.php');
                                                 <label for="partnersImages" class="form-label">Image<span
                                                         class="text-danger">*</span></label>
                                                 <input class="form-control" type="file" name="partnersImages[]"
-                                                    id="partnersImages" >
+                                                    id="partnersImages">
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-12">
                                             <div class="form-group">
-                                                <label for="backgroundColor" class="text-dark-50">Background Color<span
-                                                        class="text-danger">*</span></label>
-                                                <input type="color" class="form-control" name="backgroundColor"
-                                                    id="backgroundColor" value="#ffffff">
+                                                <label> Short Description </label>
+                                                <textarea class="form-control" placeholder="" i. name="description"
+                                                    rows="8"><?php echo $description; ?></textarea>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="sectionSequence" class="text-dark-50">Section Sequence<span
-                                                        class="text-danger">*</span></label>
-                                                <input type="number" class="form-control" name="sectionSequence"
-                                                    id="sectionSequence" value="1" min="1">
-                                            </div>
-                                        </div>
+
 
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label> Description</label>
-                                                <textarea class="form-control" placeholder=""
-                                                    id="partnersDescription" name="partnersdescription"
-                                                    rows="8"></textarea>
+                                                <textarea class="form-control" placeholder="" id="partnersDescription"
+                                                    name="partnersdescription" rows="8"></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -120,8 +111,6 @@ include('include/partners.php');
     <!-- CKEditor Initialization -->
 
     <!-- CKEditor Initialization -->
-<script>
-    CKEDITOR.replace('partnersDescription');
-</script>
-
-<script src="https://cdn.ckeditor.com/ckeditor5/35.3.2/classic/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace('partnersDescription');
+    </script>

@@ -11996,7 +11996,7 @@ sidebar navigation
 .sidebar-nav #sidebarnav .sidebar-item .sidebar-link {
   color: #fff;
   font-size: 16px;
- 
+  background: linear-gradient(to right, #8971ea, #7f72ea, #7574ea, #6a75e9, #5f76e8);
   display: flex;
   white-space: nowrap;
   align-items: center;

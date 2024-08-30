@@ -1,7 +1,7 @@
 <?php
 
 // $sql = mysqli_connect("localhost", "myproje1_petapp", "-K4I0V_LCHj{", "myproje1_petapp");
-$sql = mysqli_connect("localhost", "root", "", "myproje1_creative");
+$sql = mysqli_connect("localhost", "root", "", "myproje1_northstar");
 // $sql = mysqli_connect("localhost", "myproje1", "G7V@6FUt[t2e5m", "myproje1_creative");
 // date_default_timezone_set("Asia/Kolkata");
 // ini_set('display_errors', '1');
