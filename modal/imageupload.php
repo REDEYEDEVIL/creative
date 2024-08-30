@@ -123,10 +123,3 @@ include('include/imageupload.php');
     <!-- CKEditor Initialization -->
 
     <!-- CKEditor Initialization -->
-    <script>
-        CKEDITOR.replace('imageuploadDescription');
-    </script>
-
-    <script>
-
-    </script>
