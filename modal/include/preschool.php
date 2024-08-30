@@ -4,122 +4,114 @@ $date = date('y-i-d h:m:s');
 $eid = '';
 $msg = '';
 $msge = '';
-$filepath ='';
-$description ='';
+$filepath = '';
+$description = '';
+
+if (!file_exists('upload')) {
+  mkdir('upload', 0777, true);
+}
+if (!file_exists('uploads/preschool/')) {
+  mkdir('uploads/preschool/', 0777, true);
+}
 
 
 if (isset($_GET['s'])) {
-    $msg = "New record created successfully";
+  $msg = "New record created successfully";
 }
 if (isset($_GET['d'])) {
-    $msg = "about Deleted";
+  $msg = "about Deleted";
 }
 if (isset($_GET['e'])) {
-    $msg = "about Updated";
+  $msg = "about Updated";
 }
+
+$error_preschoolTitle = $error_preschoolImages = $error_backgroundColor = $error_sectionSequence = $error_preschooldescription = '';
 
 if (isset($_POST['submit'])) {
-    $eid = '';
-    $aboutName = $_POST['aboutName'];
-    $eid = $_POST['eid'];
-    $filename = $_FILES['file']['name'];
+  // Validate input data
+  $preschoolTitle = trim($_POST['preschoolTitle']);
+  $preschoolImages = $_FILES['preschoolImages'];
+  $backgroundColor = trim($_POST['backgroundColor']);
+  $sectionSequence = trim($_POST['sectionSequence']);
+  $preschooldescription = trim($_POST['preschooldescription']);
 
-    if ($filename != '') {
-        list($name, $ext) = explode(".", $filename);
+  // Check for errors
+  if (empty($preschoolTitle)) {
+    $error_preschoolTitle = 'Preschool title is required';
+  }
+  if (empty($preschoolImages)) {
+    $error_preschoolImages = 'Preschool images are required';
+  }
+  if (empty($backgroundColor)) {
+    $error_backgroundColor = 'Background color is required';
+  }
+  if (empty($sectionSequence)) {
+    $error_sectionSequence = 'Section sequence is required';
+  }
+  if (empty($preschooldescription)) {
+    $error_preschooldescription = 'Preschool description is required';
+  }
 
-        if (in_array($ext, $valid_formats)) {
-            $upload_filename = time() . "-" . $filename;
-            $tmp = $_FILES['file']['tmp_name'];
-            move_uploaded_file($tmp, $path . $upload_filename);
-        }
-        $filepath = $upload_filename;
-    } else {
-        $filepath = $_POST['filepath'];
+  // If no errors, insert data into database
+  if (empty($error_preschoolTitle) && empty($error_preschoolImages) && empty($error_backgroundColor) && empty($error_sectionSequence) && empty($error_preschooldescription)) {
+    // Insert preschool data into database
+    $stmt = $sql->prepare("INSERT INTO `preschool` (  `preschoolTitle`,  `backgroundColor`,  `sectionSequence`,  `preschooldescription`) VALUES ( ?, ?, ?, ?)");
+
+    $stmt->bind_param("ssis",   $preschoolTitle,  $backgroundColor,   $sectionSequence,   $preschooldescription);
+
+    $stmt->execute();
+
+    // Upload preschool images
+    $imageNames = array();
+    foreach ($preschoolImages['name'] as $key => $imageName) {
+      $imageNames[] = $imageName;
+      $imagePath = 'uploads/preschool/' . $imageName;
+      move_uploaded_file($preschoolImages['tmp_name'][$key], $imagePath);
     }
-    $flag = true;
-    if (empty($aboutName)) {
-        $flag = false;
-        $msge = "Title is required";
-    } else {
-        $query = mysqli_query($sql, "Select * from `awt_about` where title='$aboutName'");
-        if (mysqli_num_rows($query)) {
-            $flag = false;
-            $msge = "Title already exists";
-        }
-    }
+    $dara = implode(',', $imageNames);
+    $ik = mysqli_insert_id($sql);
+    // Update preschool images in database
+    $stmt = $sql->prepare("UPDATE `preschool` SET `preschoolImages` = ? WHERE `id` = ?");
+    $stmt->bind_param("si", $dara, $ik);
+    $stmt->execute();
 
-    if ($flag) {
-        if ($eid == '') {
-            $query = mysqli_query($sql, "INSERT INTO `awt_about` (`title`, `created_date`) VALUES ('$aboutName','$date')");
-            if ($query) {
-
-                $msg = "New record created successfully";
-            } else {
-                $msg = "Error: " . $query . "<br>" . mysqli_error($conn);
-            }
-            echo '<script type="text/javascript">window.location.href="about_us.php?&s=1"</script>';
-        } else {
-
-            echo "UPDATE `awt_about` SET `title`='$aboutName' , `created_date`='$date' where `id` = '$eid'";
-            $query = mysqli_query($sql, "UPDATE `awt_about` SET `title`='$aboutName' , `created_date`='$date' where `id` = '$eid'");
-            if ($query) {
-                $msg = "Title Updated";
-            } else {
-                $msg = "Error: " . $query . "<br>" . mysqli_error($conn);
-            }
-            echo '<script type="text/javascript">window.location.href="about_us.php?&u=1"</script>';
-        }
-    }
+    // Display success message
+    $msg = 'Preschool data inserted successfully';
+  } else {
+    // Display error messages
+    $msg = '<br>' . $error_preschoolTitle . '<br>' . $error_preschoolImages . '<br>' . $error_backgroundColor . '<br>' . $error_sectionSequence . '<br>' . $error_preschooldescription;
+  }
 }
 
 
-if (isset($_GET['did'])) {
-    $did = $_GET['did'];
 
-    echo "update `awt_about` set `deleted` = 1 where `id`='$did'";
 
-    $query = mysqli_query($sql, "update `awt_about` set `deleted` = 1 where `id`='$did'");
-    if ($query) {
-
-        $msg = "Title Deleted";
-    } else {
-        $msg = "Error: " . $query . "<br>" . mysqli_error($conn);
-    }
-    echo '<script type="text/javascript">window.location.href="about_us.php?&d=1"</script>';
-}
-
-if (isset($_GET['eid'])) {
-    $eid = $_GET['eid'];
-    $query = mysqli_query($sql, "Select * From `awt_about` where `id`='$eid'");
-    $row = mysqli_fetch_object($query);
-    $aboutName = $row->title;
-}
 
 
 function tablerow($sql)
 {
-    $query1 = mysqli_query($sql, "SELECT * FROM `awt_about` where `deleted` = 0");
+  $query1 = mysqli_query($sql, "SELECT * FROM `awt_about` where `deleted` = 0");
 
-    $x = 1;
+  $x = 1;
 
-    mysqli_data_seek($query1, 1);
-    while ($listdata = mysqli_fetch_object($query1 )) {
+  mysqli_data_seek($query1, 1);
+  while ($listdata = mysqli_fetch_object($query1)) {
 
-        echo '<tr>
+    echo '<tr>
         <td class="text-center">' . $x . ' </td>
         <td class="d-flex justify-content-between">
             <p>' . $listdata->title . '</p>
             <div class="popover-icon">';
-        $id = $listdata->id;
-      
+    $id = $listdata->id;
 
-        echo '</div>
+
+    echo '</div>
         </td>
         <td>
           <a href="about_us.php?&eid=' . $listdata->id . '" class="btn" style="color: black;"><i class="fas fa-edit"></i></a>
           <a onclick=\"return confirm("Are you sure you want to delete this role?")\" href="about_us.php?&did=' . $listdata->id . '" class="btn" style="color: red;"><i class="fas fa-trash-alt"></i></a>
         </td>
     </tr>';
-        $x++;
-    }
+    $x++;
+  }
 }

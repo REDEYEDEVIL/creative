@@ -117,11 +117,9 @@ include('include/partners.php');
     <!-- CKEditor Initialization -->
 
     <!-- CKEditor Initialization -->
-<<<<<<< Updated upstream
     <script>
         CKEDITOR.replace('partnersDescription');
     </script>
-=======
 
 
 <script src="https://cdn.ckeditor.com/ckeditor5/35.3.2/classic/ckeditor.js"></script>
@@ -141,4 +139,3 @@ ClassicEditor
             console.error(error);
         });
 </script>
->>>>>>> Stashed changes
