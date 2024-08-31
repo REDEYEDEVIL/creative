@@ -1,11 +1,11 @@
 <?php
-$aboutName = '';
+$pretitle = '';
 $date = date('y-i-d h:m:s');
 $eid = '';
 $msg = '';
 $msge = '';
 $filepath = '';
-$description = '';
+$desc = '';
 
 if (!file_exists('upload')) {
   mkdir('upload', 0777, true);
@@ -55,7 +55,7 @@ if (isset($_POST['submit'])) {
   // If no errors, insert data into database
   if (empty($error_preschoolTitle) && empty($error_preschoolImages) && empty($error_backgroundColor) && empty($error_sectionSequence) && empty($error_preschooldescription)) {
     // Insert preschool data into database
-    $stmt = $sql->prepare("INSERT INTO `preschool` (  `preschoolTitle`,  `backgroundColor`,  `sectionSequence`,  `preschooldescription`) VALUES ( ?, ?, ?, ?)");
+    $stmt = $sql->prepare("INSERT INTO `awt_preschool` (  `preschoolTitle`,  `backgroundColor`,  `sectionSequence`,  `preschooldescription`) VALUES ( ?, ?, ?, ?)");
 
     $stmt->bind_param("ssis",   $preschoolTitle,  $backgroundColor,   $sectionSequence,   $preschooldescription);
 
@@ -71,7 +71,7 @@ if (isset($_POST['submit'])) {
     $dara = implode(',', $imageNames);
     $ik = mysqli_insert_id($sql);
     // Update preschool images in database
-    $stmt = $sql->prepare("UPDATE `preschool` SET `preschoolImages` = ? WHERE `id` = ?");
+    $stmt = $sql->prepare("UPDATE `awt_preschool` SET `preschoolImages` = ? WHERE `id` = ?");
     $stmt->bind_param("si", $dara, $ik);
     $stmt->execute();
 
@@ -90,7 +90,7 @@ if (isset($_POST['submit'])) {
 
 function tablerow($sql)
 {
-  $query1 = mysqli_query($sql, "SELECT * FROM `awt_about` where `deleted` = 0");
+  $query1 = mysqli_query($sql, "SELECT * FROM `awt_preschool` where `deleted` = 0");
 
   $x = 1;
 

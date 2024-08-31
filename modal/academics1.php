@@ -66,6 +66,7 @@ include('include/academics1.php');
                                         <input type="hidden" class="form-control" id="eid" name="eid" value="">
                                         <button type="submit" name="submit"
                                             class="btn col-2 btn-primary btn-sm btn-block">Submit</button>
+                                            <a href="academics1.php" name="cancel" class=" col-2 ml-1 btn btn-danger">Cancel</a>
                                     </div>
                                     <div class="text-danger"></div>
 

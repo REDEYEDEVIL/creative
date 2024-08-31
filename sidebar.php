@@ -69,6 +69,7 @@ if($_SESSION['role'] == 1){
             <span class="text-black">Academics</span>
           </a>
             <ul id="academicsSubmenu" class="submenu collapse">
+              <li class="sidebar-item"><a href="academics.php" class="sidebar-link">Academics</a></li>
               <li class="sidebar-item"><a href="preschool.php" class="sidebar-link">Preschool</a></li>
               <li class="sidebar-item"><a href="primary.php" class="sidebar-link">Primary</a></li>
               <li class="sidebar-item"><a href="middleschool.php" class="sidebar-link">Middle School</a></li>
@@ -90,6 +91,17 @@ if($_SESSION['role'] == 1){
               <li class="sidebar-item"><a href="gallerycategory.php" class="sidebar-link">Category</a></li>
               <li class="sidebar-item"><a href="gallerysub-category.php" class="sidebar-link">Sub-category</a></li>
               <li class="sidebar-item"><a href="imageupload.php" class="sidebar-link">image-upload</a></li>
+            </ul>
+        </li>
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="#admissionSubmenu" aria-expanded="false" data-toggle="collapse">
+            <i data-feather="book" class="feather-icon"></i>
+            <span class="text-black">Admission</span>
+          </a>
+            <ul id="admissionSubmenu" class="submenu collapse">
+              <li class="sidebar-item"><a href="admission.php" class="sidebar-link">Admission</a></li>
+              <li class="sidebar-item"><a href="fees.php" class="sidebar-link">Fees Structure</a></li>
+            
             </ul>
         </li>
         <li class="sidebar-item">

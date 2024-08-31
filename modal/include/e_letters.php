@@ -46,7 +46,7 @@ if (isset($_POST['submit'])) {
         $query = mysqli_query($sql, "Select * from `e_letters` where title='$letterName'");
         if (mysqli_num_rows($query)) {
             $flag = false;
-            $msge = "Title already exists";
+            $msge = "Title already exists"; 
         }
     }
 

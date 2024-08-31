@@ -3,7 +3,7 @@ include('include/gallerycategory.php');
 ?>
 
     <div class="page-wrapper">
-        <div class="p-3" style="height: 100vh !important; width: 100%;">
+        <div class="p-3" >
             <div class="row">
                 <div class="col-md-6">
                     <div class="card">
@@ -36,7 +36,7 @@ include('include/gallerycategory.php');
                                                     id="name">
                                                     <?php
                                                     if ($filepath != '') {
-                                                        echo '<img src="' . $path . $filepath . '" alt="Image Description" width="100%;" />';
+                                                        echo '<img src="' . $path . $filepath . '" alt="Image Description" width="25%;" />';
                                                     }
                                                     ?>
                                             </div>
