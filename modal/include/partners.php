@@ -8,6 +8,15 @@ $filepath ='';
 $description ='';
 
 
+
+if (!file_exists('uploads')) {
+    mkdir('upload', 0777, true);
+  }
+  if (!file_exists('uploads/gallery/')) {
+    mkdir('uploads/gallery/', 0777, true);
+  }
+
+  
 if (isset($_GET['s'])) {
     $msg = "New record created successfully";
 }

@@ -25,7 +25,7 @@ include('include/partners.php');
                                     <!-- partners Section -->
 
                                     <div class="row">
-                                        <div class="col-md-6 ">
+                                        <div class="col-md-12 ">
                                             <div class="form-group">
                                                 <label for="partnersTitle" class="text-dark-50">Partners
                                                     Title<span class="text-danger">*</span></label>
@@ -40,7 +40,7 @@ include('include/partners.php');
                                             <div class="form-group">
                                                 <label for="partnersImages" class="form-label">Image<span
                                                         class="text-danger">*</span></label>
-                                                <input class="form-control" type="file" name="partnersImages[]"
+                                                <input class="form-controlfile" type="file" name="partnersImages[]"
                                                     id="partnersImages">
                                             </div>
                                         </div>
@@ -56,14 +56,9 @@ include('include/partners.php');
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label> Description</label>
-<<<<<<< Updated upstream
-                                                <textarea class="form-control" placeholder="" id="partnersDescription"
-                                                    name="partnersdescription" rows="8"></textarea>
-=======
                                                 <textarea class="form-control" placeholder=""
                                                     id="ckeditor" name="partnersdescription"
                                                     rows="8"></textarea>
->>>>>>> Stashed changes
                                             </div>
                                         </div>
                                     </div>
