@@ -22,6 +22,9 @@ if (!file_exists('uploads/gallery/')) {
 
 
 
+$path = "../upload/gallery/";
+$valid_formats = array("jpg", "png", "gif", "bmp","jpeg", "JPG", "PNG", "GIF", "BMP", "JPEG", "webp", "WEBP");
+
 if (isset($_GET['s'])) {
   $msg = "New record created successfully";
 }

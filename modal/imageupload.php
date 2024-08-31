@@ -99,7 +99,9 @@ include('include/imageupload.php');
             <h5 class="text-dark" style="border-bottom: 1px solid #cfcfcf;padding-bottom:5px ; ">
               <strong>Images List (<span id="roleCount"><?php echo $x; ?></span>)</strong>
             </h5>
-            <table width="100%" class="table table-striped align-baseline table-bordered table-sm" id="myTable">
+            <table width="100%" class="table table-striped align-baseline table-bordered table-sm"
+              id="myTable">
+
               <thead class="thead-dark">
                 <tr>
                   <th style="width: 5%;">No.</th>

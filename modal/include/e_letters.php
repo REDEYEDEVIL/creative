@@ -1,11 +1,13 @@
 <?php
-$aboutName = '';
+$letterName = '';
 $date = date('y-i-d h:m:s');
 $eid = '';
 $msg = '';
 $msge = '';
+$valid_formats=  array("jpg", "jpeg", "png", "gif");
+$path = "upload/";
 $filepath ='';
-$description ='';
+
 
 
 if (isset($_GET['s'])) {
@@ -20,7 +22,7 @@ if (isset($_GET['e'])) {
 
 if (isset($_POST['submit'])) {
     $eid = '';
-    $aboutName = $_POST['aboutName'];
+    $letterName = $_POST['letterName'];
     $eid = $_POST['eid'];
     $filename = $_FILES['file']['name'];
 
@@ -37,72 +39,73 @@ if (isset($_POST['submit'])) {
         $filepath = $_POST['filepath'];
     }
     $flag = true;
-    if (empty($aboutName)) {
+    if (empty($letterName)) {
         $flag = false;
         $msge = "Title is required";
     } else {
-        $query = mysqli_query($sql, "Select * from `awt_about` where title='$aboutName'");
+        $query = mysqli_query($sql, "Select * from `e_letters` where title='$letterName'");
         if (mysqli_num_rows($query)) {
             $flag = false;
             $msge = "Title already exists";
         }
     }
 
-    if ($flag) {
+   
         if ($eid == '') {
-            $query = mysqli_query($sql, "INSERT INTO `awt_about` (`title`, `created_date`) VALUES ('$aboutName','$date')");
+            $query = mysqli_query($sql, "INSERT INTO `e_letters` (`title`,`image`, `created_date`) VALUES ('$letterName','$filepath','$date')");
             if ($query) {
 
                 $msg = "New record created successfully";
             } else {
                 $msg = "Error: " . $query . "<br>" . mysqli_error($conn);
             }
-            echo '<script type="text/javascript">window.location.href="about_us.php?&s=1"</script>';
+            echo '<script type="text/javascript">window.location.href="e_letters.php?&s=1"</script>';
         } else {
 
-            echo "UPDATE `awt_about` SET `title`='$aboutName' , `created_date`='$date' where `id` = '$eid'";
-            $query = mysqli_query($sql, "UPDATE `awt_about` SET `title`='$aboutName' , `created_date`='$date' where `id` = '$eid'");
+            echo "UPDATE `e_letters` SET `title`='$letterName' ,`image`='$filepath', `created_date`='$date' where `id` = '$eid'";
+            $query = mysqli_query($sql, "UPDATE `e_letters` SET `title`='$letterName' ,`image`='$filepath', `created_date`='$date' where `id` = '$eid'");
             if ($query) {
                 $msg = "Title Updated";
             } else {
                 $msg = "Error: " . $query . "<br>" . mysqli_error($conn);
             }
-            echo '<script type="text/javascript">window.location.href="about_us.php?&u=1"</script>';
+            echo '<script type="text/javascript">window.location.href="e_letters.php?&u=1"</script>';
         }
-    }
+    
 }
 
 
 if (isset($_GET['did'])) {
     $did = $_GET['did'];
 
-    echo "update `awt_about` set `deleted` = 1 where `id`='$did'";
+    echo "update `e_letters` set `deleted` = 1 where `id`='$did'";
 
-    $query = mysqli_query($sql, "update `awt_about` set `deleted` = 1 where `id`='$did'");
+    $query = mysqli_query($sql, "update `e_letters` set `deleted` = 1 where `id`='$did'");
     if ($query) {
 
         $msg = "Title Deleted";
     } else {
         $msg = "Error: " . $query . "<br>" . mysqli_error($conn);
     }
-    echo '<script type="text/javascript">window.location.href="about_us.php?&d=1"</script>';
+    echo '<script type="text/javascript">window.location.href="e_letters.php?&d=1"</script>';
 }
 
 if (isset($_GET['eid'])) {
     $eid = $_GET['eid'];
-    $query = mysqli_query($sql, "Select * From `awt_about` where `id`='$eid'");
+    $query = mysqli_query($sql, "Select * From `e_letters` where `id`='$eid'");
     $row = mysqli_fetch_object($query);
-    $aboutName = $row->title;
+    $letterName = $row->title;
+    $filepath = $row->image;
 }
 
 
 function tablerow($sql)
 {
-    $query1 = mysqli_query($sql, "SELECT * FROM `awt_about` where `deleted` = 0");
+    $query1 = mysqli_query($sql, "SELECT * FROM `e_letters` where `deleted` = 0");
 
     $x = 1;
 
-    mysqli_data_seek($query1, 1);
+   
     while ($listdata = mysqli_fetch_object($query1 )) {
 
         echo '<tr>
@@ -116,8 +119,8 @@ function tablerow($sql)
         echo '</div>
         </td>
         <td>
-          <a href="about_us.php?&eid=' . $listdata->id . '" class="btn" style="color: black;"><i class="fas fa-edit"></i></a>
-          <a onclick=\"return confirm("Are you sure you want to delete this role?")\" href="about_us.php?&did=' . $listdata->id . '" class="btn" style="color: red;"><i class="fas fa-trash-alt"></i></a>
+          <a href="e_letters.php?&eid=' . $listdata->id . '" class="btn" style="color: black;"><i class="fas fa-edit"></i></a>
+          <a onclick=\"return confirm("Are you sure you want to delete this role?")\" href="e_letters.php?&did=' . $listdata->id . '" class="btn" style="color: red;"><i class="fas fa-trash-alt"></i></a>
         </td>
     </tr>';
         $x++;
