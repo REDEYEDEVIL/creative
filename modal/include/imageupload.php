@@ -12,8 +12,8 @@ $category = '';
 $subcategory = '';
 $images= '';
 
-if (!file_exists('upload')) {
-  mkdir('upload', 0777, true);
+if (!file_exists('uploads')) {
+  mkdir('uploads', 0777, true);
 }
 if (!file_exists('uploads/gallery/')) {
   mkdir('uploads/gallery/', 0777, true);
